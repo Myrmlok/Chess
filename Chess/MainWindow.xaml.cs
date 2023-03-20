@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MVMM;
+using System.IO;
 namespace Chess
 {
     /// <summary>
@@ -211,7 +212,7 @@ namespace Chess
                         int _y = viewModal.SelectedFigure.Y;
                         bool isWhite = viewModal.SelectedFigure.IsWhite;
                         int index = friend.FiguresMany.IndexOf(viewModal.SelectedFigure);
-                        friend.FiguresMany[index]= new Queen() { X = _x, Y = _y,IsWhite= isWhite, SourceImage = $@"C:\Users\User\Desktop\Шаг\Дмитрий\C#\homework\Chess\Chess\img\{"Queen" + src + ".png"}" };
+                        friend.FiguresMany[index]= new Queen() { X = _x, Y = _y,IsWhite= isWhite, SourceImage = $@"{Directory.GetCurrentDirectory()}\img\{"Queen" + src + ".png"}" };
                         viewModal.button.Background = new ImageBrush(new BitmapImage(new Uri(friend.FiguresMany[index].SourceImage)));
                         viewModal.button.DataContext = friend.FiguresMany[index];
                         viewModal.SelectedFigure.FirstMove = false;
